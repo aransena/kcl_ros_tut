@@ -1,5 +1,3 @@
-Note: Don't clone this repo straight away - this readme will let you know when to clone!
-
 # What is ROS?
 ROS stands for 'Robot Opertaing System', but it is not an 'operating system' in the way you would be used to - ROS is a collection of software packages that are installed like any other software. ROS offers software to allow for easy communication between a distributed set of programs, whether they're locally distributed as a number of different programs running on your computer, or a collection of programs running over a network.
 
@@ -187,7 +185,11 @@ rosbag record -a
 
 # Creating your Own Packages
 
-We'll go through how to get started with creating your own package; however when it comes to actually writing publishers/subscribers etc., it's best to head over to the main tutorial pages (linked below).
+We'll go through how to get started with creating your own package; however when it comes to actually writing publishers/subscribers etc., it's best to head over to the main tutorial pages (links below).
+
+An important thing to note when you are creating your own publishers/subscribers/etc. in the tutorials linked below is to note the changes required in your package's package.xml and CMakeLists.txt files.
+
+Another important thing to note is that you will also find a CMakeLists.txt file in the location ~/catkin_ws/CMakeLists.txt; however this is NOT the one you edit. You edit the file located in ~/catkin_ws/src/my_pkg/CMakeLists.txt.
 
 ## Create a ROS Workspace
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
@@ -277,6 +279,22 @@ Remember to catkin_make your workspace and then source it before trying to rosru
 
 ## Exercise
 Once your done with the ROS tutorials, create a package that can control the turtlesim and make it drive in circles.
+
+## Pulling in Packages from Git
+ROS workspaces use wstool to manage code from external sources. Say you wanted to clone this repo (which is set up like a package, with a package.xml file and CMakeLists.txt file), you would enter the following commands:
+
+```
+cd ~/catkin_ws/src
+wstool init
+wstool set kcl_ros_tut --git https://github.com/aransena/kcl_ros_tut
+wstool update
+```
+
+The format for the wstool set command is:
+
+```
+wstool set [local name] [source] [link]
+```
 
 # ROS Resources
 
