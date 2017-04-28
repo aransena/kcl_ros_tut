@@ -5,6 +5,8 @@ The 'Operating System' part of the ROS name refers to the idea that a robot syst
 
 In addition to allowing for communication in a distributed system, ROS provides a rich library of packages that are commonly used in robot development. Everything from packages that easily pull in depth sensor data, to connecting your robot to web-applications, to a pre-built customisable navigation system for mobile robots.
 
+The notes here are to give you my perspective on the key things you need to learn to be comfortable in ROS to the point that you'll be able to get up and running with new packages and ROS concepts smoothly, rather than being completely comprehensive. http://wiki.ros.org/ is your best go-to for information on packages/tutorials etc. as well as the usual like stack overflow.
+
 # Pre-requisites
 - A computer running Ubuntu 14.04
 OR
@@ -302,7 +304,7 @@ wstool set [local name] [source] [link]
 http://wiki.ros.org/ROS/Tutorials
 
 ## Cheatsheet
-You'll find a really useful cheatsheet here: file:///home/aransena/Downloads/ROScheatsheet_catkin.pdf
+You'll find a really useful cheatsheet here: https://github.com/ros/cheatsheet/releases/download/0.0.1/ROScheatsheet_catkin.pdf
 
 You wind up using pretty much all of these commands quite regularly, so worthwhile getting familiar with them!
 
@@ -317,4 +319,8 @@ Some very useful packages that you may want to investigate further once you've g
 - openni2_launch, package for interfacing with an Xtion Pro Depth Sensor (but not a Kinect): http://wiki.ros.org/openni2_launch
 - openni_launch, package for interfacing with a Kinect v1: http://wiki.ros.org/openni_launch
 - To interface with a Kinect v2, see here: http://www.ros.org/news/2014/09/microsoft-kinect-v2-driver-released.html
+
+## Important Tools
+Some important tools specific to working in RLL
+- MoveIt, Motion Planning Framework: http://moveit.ros.org/
 
