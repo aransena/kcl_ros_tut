@@ -48,6 +48,7 @@ There's quite a lot to roscore, but for the most part you won't have to worry ab
 ## Packages
 With ROS, software is organised into *packages*. One of the main benefits of ROS and it's open-source nature is that there are many packages pre-built for you to use that provide a huge amount of functionality out of the box.
 
+## rosrun
 For the purpose of learning about ROS, a common starting point is the turtlesim package. To run code from this package, we use the ROS command rosrun.
 
 ```
@@ -71,6 +72,17 @@ If you want to install a new package, you use:
 ```
 sudo apt-get install ros-indigo-<Package Name>
 ```
+
+## roslaunch
+Often with robot systems, we will need to start multiple packages. ROS uses launch files and the roslaunch tool to simplify the process of starting up packages.
+
+Two nice features of roslaunch is that it will automatically start roscore if it detects the core is not running yet, and you can configure packages to relaunch if the node being launch fails during execution (e.g. can keep attempting to connect to a device).
+
+Launch files are XML files which contain a list of packages to start, along with the arguments which need to be passed to the package. Launch files can call packages, as well as other launch files.
+
+They also support advanced functionality such as launching a package on a specific computer in a distributed ROS network of computers.
+
+There's quite a bit to launch files, but making a basic one is pretty straight forward - once you've completed this tutorial, come back to this link and see here for full details on launch files: http://wiki.ros.org/roslaunch/XML
 
 ## Nodes & Topics
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingTopics
