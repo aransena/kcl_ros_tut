@@ -174,11 +174,19 @@ rosbag play [name of your bag file].bag
 
 You should see your turtle moving around as ROS plays back the cmd_vel messages.
 
-If you want to record multiple topics, you can use the -O subset modifier and then list the topics you are interested in as arguments:
+If you want to record multiple topics, you can just list the topics you are interested in as arguments:
 
 ```
-rosbag record -O subset /turtle1/cmd_vel /turtle1/pose
+rosbag record /turtle1/cmd_vel /turtle1/pose
 ```
+
+By default, bag files are given timestamps as names, but if you would like to give it a name of your choosing you can use the -O argument and specify a filename:
+
+```
+rosbag record -O myfile /topicname
+```
+
+This gives you a bag file called myfile.bag containing data from a topic called /topicname.
 
 If you are interested in recording all topics, simply run:
 
