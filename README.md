@@ -19,7 +19,9 @@ This is a very useful terminal emulator which allows for multiple terminals in o
 To install Terminator, the easiest option is to open the Ubuntu Software Center and search for Terminator, it should be the first result.
 
 ### Nootrix Image
-If you're using a virtual machine, a useful resource is the VM image from Nootrix which has ROS Indigo pre-installed on Ubuntu 14.04 http://nootrix.com/software/ros-indigo-virtual-machine/
+If you're using a virtual machine, a useful resource is the VM image from Nootrix which has ROS Indigo pre-installed on Ubuntu 14.04
+Info - http://nootrix.com/software/ros-indigo-virtual-machine/
+Download link - https://drive.google.com/file/d/0B_ULD8CBaw26TEpqUG1McGs5aVU/view?usp=sharing
 
 
 # Installing ROS
