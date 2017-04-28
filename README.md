@@ -32,6 +32,17 @@ The ROS wiki will become your best friend - all released packages will have an i
 # Getting Started
 Before you go about creating our own code, let's take some time to get familiar with the main concepts.
 
+## ROS Core
+As the name might suggest, the ROS Core is the central part of a ROS system. In order to start running anything with ROS, you must first launch roscore.
+
+In a terminal, simply enter:
+
+```
+roscore
+```
+
+There's quite a lot to roscore, but for the most part you won't have to worry about it for now. Just remember to always run roscore before you try run anything else ROS related.
+
 ## Packages
 With ROS, software is organised into *packages*. One of the main benefits of ROS and it's open-source nature is that there are many packages pre-built for you to use that provide a huge amount of functionality out of the box.
 
@@ -112,6 +123,14 @@ rqt_console. In the topic entry box, enter / and then select the pose topic. The
 
 Now as you teleop the turtlesim around you will see the graph update.
 
+### RViz
+With more advanced systems, a more powerful visualisation tool is rviz. There isn't much to see using this tool with turtlesim, but if you follow these two tutorials you should be able to see how useful it can be:
+
+- How to launch a simulation of a turtlebot using the Gazebo simulator: http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Gazebo%20Bringup%20Guide
+- Teleoperate the turtlebot and visualise its sensors: http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Explore%20the%20Gazebo%20world
+
+Note that Gazebo can be pretty resource intensive.
+
 ### rqt_console
 http://wiki.ros.org/rqt_console
 ROS incorporates a debugging message system with different levels of messages. Using rqt_console, you can filter messages by severity level and monitor what is happening in your system. You can also issue your own ROS system messages and monitor them through rqt_console.
@@ -120,7 +139,57 @@ ROS incorporates a debugging message system with different levels of messages. U
 ## Services & Parameters
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams
 
-# Create a ROS Workspace
+Publishers and subscribers constantly communicate back and forth to stream data; however sometimes it is useful to be able to be able to call on certain functionality only when it is needed, which is where services are useful.
+
+e.g. filtering a point cloud, which requires quite a lot of processing power, and might be useful to a few different robot subsystems, so we put the filtering into a service that can be called upon when needed where the subsystems provide the data that requires filtering, and the service returns the filtered data.
+
+This can also be used to offload heavy processing to another computer that is part of your ROS network, if you are operating in a distributed setup (something to discuss another day http://wiki.ros.org/ROS/Tutorials/MultipleMachines).
+
+## Recording Data
+Main tutorial: http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data
+
+When dealing with dozens of topics, it can be a bit inconvenient trying to write your own code that captures all the topics and data you would want; fortunately ROS provides the rosbag tool for data recording purposes, as well as data playback.
+
+Say we wanted to record how a user interacted with our turtlesim node, we can run:
+
+```
+rosbag record /turtle1/cmd_vel
+```
+
+This will start recording all data on the /turtle1/cmd_vel topic. Move your turtle around for a while with a teleop node, then return to the rosbag window and press ctrl+C to end the recording session.
+
+Your rosbag file (a .bag file) should be stored in the folder you ran rosbag from. You can get an overview of the contects of the file with 
+
+```
+rosbage info <name of file>.bag
+```
+
+Restart your turtlesim node, and then run 
+
+```
+rosbag play [name of your bag file].bag
+```
+
+You should see your turtle moving around as ROS plays back the cmd_vel messages.
+
+If you want to record multiple topics, you can use the -O subset modifier and then list the topics you are interested in as arguments:
+
+```
+rosbag record -O subset /turtle1/cmd_vel /turtle1/pose
+```
+
+If you are interested in recording all topics, simply run:
+
+```
+rosbag record -a
+```
+
+
+# Creating your Own Packages
+
+We'll go through how to get started with creating your own package; however when it comes to actually writing publishers/subscribers etc., it's best to head over to the main tutorial pages (linked below).
+
+## Create a ROS Workspace
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment
 
 As part of the installtion procedure, you will have set up your terminal environment to use ROS commands, but you will need set up a *workspace* for your development code.
@@ -157,7 +226,7 @@ If you forget this part after making your workspace, commands like *rosrun* won'
 
 One tip if you ever have issues/errors running catkin_make, *before* digging through code or config files to try find an error, is to delete your build and devel folders, and then try catkin_make again from scratch. You can use the command rm -rf [folder name/folder path] to delete a folder.
 
-# Creating Your Own Packages
+## Creating Your Own Packages
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/CreatingPackage
 Packages have a specific structure, requiring both a *package.xml* file which provides meta information on the package, and a *CMakeLists.txt* file which is used by the catkin build system.
 
@@ -185,6 +254,29 @@ mkdir res <-- For package resources, e.g. images, sounds
 mkdir urdf <-- For robot universal robot description format files, used in simulators like gazebo
 ```
 Of course, you don't need all of them.
+
+## Publishers & Subscribers
+Python: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29
+C++: http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29
+
+Note before you can run a python file from your package, you will need to set permissions for it:
+
+```
+sudo chmod a+x <path to your file.py>
+```
+
+## Custom Message Types and Declaring Services
+http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv
+
+## Services
+python: http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29
+c++: http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29
+
+## Running your package
+Remember to catkin_make your workspace and then source it before trying to rosrun your package.
+
+## Exercise
+Once your done with the ROS tutorials, create a package that can control the turtlesim and make it drive in circles.
 
 # ROS Resources
 
