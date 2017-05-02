@@ -271,7 +271,7 @@ catkin_create_pkg my_pkg rospy std_msgs
 ```
 This command will create a new folder in our src folder called *my_pkg*. In my_pkg, you will find the auto-generated package.xml and CMakeLists.txt files. 
 
-In these files, dependencies will already be configured for rospy and std_msgs. rospy is the python ros library we'll need to use in our code, and std_msgs are the standard ROS messages we'll need to communicated with the turtlesim node.
+In these files, dependencies will already be configured for rospy and std_msgs since we declared them when we ran catkin_create_pkg; however as you develop your package you may need to manually edit your package.xml and CMakeLists.txt files as more dependencies (if developing in C++ you'll also need to declare any programs you write in here as executables) - this is detailed further in the main tutorials. Here, rospy is the python ros library we'll need to use in our code, and std_msgs are the standard ROS messages we'll need to communicated with the turtlesim node.
 
 ```
 catkin_create_pkg [Package Name] [Dependency 1] [Dependency 2, etc.]
