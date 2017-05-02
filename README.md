@@ -145,18 +145,22 @@ rqt_console. In the topic entry box, enter / and then select the pose topic. The
 
 Now as you teleop the turtlesim around you will see the graph update.
 
+### rqt_console
+http://wiki.ros.org/rqt_console
+ROS incorporates a debugging message system with different levels of messages. Using rqt_console, you can filter messages by severity level and monitor what is happening in your system. You can also issue your own ROS system messages and monitor them through rqt_console.
+
 ### RViz
-With more advanced systems, a more powerful visualisation tool is rviz. There isn't much to see using this tool with turtlesim, but if you follow these two tutorials you should be able to see how useful it can be:
+With more advanced systems, a more powerful visualisation tool is rviz. There isn't much to see using this tool with turtlesim, but if you follow these two tutorials you should be able to see how useful it can be (they'll also introduce you to the simulation environment packaged with ROS, Gazebo):
 
 - How to launch a simulation of a turtlebot using the Gazebo simulator: http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Gazebo%20Bringup%20Guide
 - Teleoperate the turtlebot and visualise its sensors: http://wiki.ros.org/turtlebot_gazebo/Tutorials/indigo/Explore%20the%20Gazebo%20world
 
 Note that Gazebo can be pretty resource intensive.
 
-### rqt_console
-http://wiki.ros.org/rqt_console
-ROS incorporates a debugging message system with different levels of messages. Using rqt_console, you can filter messages by severity level and monitor what is happening in your system. You can also issue your own ROS system messages and monitor them through rqt_console.
+### rqt
+If you just run 'rqt' in the terminal, you will launch a general rqt window, in which you can manually configure the interfaces it shows - you can have multiple rqt_plots along with rqt_console and RViz in subwindows all in the one interface.
 
+It's quite a useful tool for building up a monitoring and debugging interface for your systems - see more here: http://wiki.ros.org/rqt
 
 ## Services & Parameters
 Main tutorial: http://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams
