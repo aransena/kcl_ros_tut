@@ -130,6 +130,14 @@ ls
 
 We'll see later how to create custom message types that allow you to incorporate meta data directly with a message for ease of documentation/collaboration/etc as part of best practices.
 
+When communicating between topics, both the name of the topic and the message type need to match between the publisher and subscriber. If you want to connect a publisher and subscriber that by default do not have topics that match names, but do match message types you can *remap* the relevant topic when you launch the node using :=, e.g.:
+
+```
+rosrun turtlebot_teleop turtlebot_teleop_key /turtlebot_teleop/cmd_vel:=/cmd_vel
+```
+
+This will remap the teleoperation node publishing topic from /turtlebot_teleop/cmd_vel to just /cmd_vel (when the node runs, there will just be the /cmd_vel topic). Similar can be done for subscribers.
+
 ## Data Visualisation & Logging Tools
 ### rqt_plot
 A useful tool for visualising topic data in a more intuitive way than rostopic echo is *rqt_plot*. Try run rqt_plot now 
