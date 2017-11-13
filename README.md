@@ -358,3 +358,5 @@ Some very useful packages that you may want to investigate further once you've g
 Some important tools specific to working in RLL
 - MoveIt, Motion Planning Framework: http://moveit.ros.org/
 
+## Challenge Solution
+To run the solution, copy it into the src folder of your package and give it permission to run (sudo chmod a+x my_node.py)
