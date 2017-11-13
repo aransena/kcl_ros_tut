@@ -141,7 +141,7 @@ This will remap the teleoperation node publishing topic from /turtlebot_teleop/c
 ## Data Visualisation & Logging Tools
 ### rqt_plot
 A useful tool for visualising topic data in a more intuitive way than rostopic echo is *rqt_plot*. Try run rqt_plot now 
-rqt_console. In the topic entry box, enter / and then select the pose topic. Then click on the remove icon and remove all but the linear velocity item.
+from the console. In the topic entry box, enter / and then select the pose topic. Then click on the remove icon and remove all but the linear velocity item.
 
 Now as you teleop the turtlesim around you will see the graph update.
 
@@ -187,7 +187,7 @@ This will start recording all data on the /turtle1/cmd_vel topic. Move your turt
 Your rosbag file (a .bag file) should be stored in the folder you ran rosbag from. You can get an overview of the contects of the file with 
 
 ```
-rosbage info <name of file>.bag
+rosbag info <name of file>.bag
 ```
 
 Restart your turtlesim node, and then run 
