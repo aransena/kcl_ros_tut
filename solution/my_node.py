@@ -2,11 +2,10 @@
 """
 Created on Mon Nov 13 14:25:01 2017
 
-@author: viki
+@author: Aran Sena (aran.sena@kcl.ac.uk)
 """
 
 import rospy
-from std_msgs.msg import String
 from geometry_msgs.msg import Twist
 
 global pub
