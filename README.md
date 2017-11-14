@@ -1,3 +1,8 @@
+# Slide Deck
+ Link to slide deck accompanying the details below: https://docs.google.com/presentation/d/1DdZ-ux7_N4f2irV9QmhesHyyadU4wflmLM2FIQp6998/edit?usp=sharing
+ 
+ Note: There's a few additional details below that are not in the slide deck.
+
 # What is ROS?
 ROS stands for 'Robot Opertaing System', but it is not an 'operating system' in the way you would be used to - ROS is a collection of software packages that are installed like any other software. ROS offers software to allow for easy communication between a distributed set of programs, whether they're locally distributed as a number of different programs running on your computer, or a collection of programs running over a network.
 
